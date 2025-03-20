@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 project(<%= projectName %> VERSION 1.0.0 LANGUAGES C)
 
-option(BUILD_<%= shortName.toUpperCase() %>_EXAMPLE "Set to ON to build <%= projectName %> example." OFF)
+option(BUILD_<%= shortPrefix %>_EXAMPLE "Set to ON to build <%= projectName %> example." OFF)
 
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)

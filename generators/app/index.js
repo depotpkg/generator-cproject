@@ -16,9 +16,10 @@ module.exports = class extends Generator {
       type: 'input',
       name: 'shortName',
       message: 'What is the short name of your project?',
-      default: this.appname.toUpperCase()
+      default: this.appname
     }]).then(props => {
       this.props = props;
+      this.props.shortPrefix = props.shortName.toUpperCase();
     });
   }
 
