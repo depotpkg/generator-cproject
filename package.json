@@ -1,19 +1,17 @@
 {
   "name": "generator-cproject",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "C project generator",
   "homepage": "",
   "author": {
     "name": "skylerlee",
-    "email": "skyler.ac.lee@gmail.com",
-    "url": ""
+    "email": "skyler.ac.lee@gmail.com"
   },
   "files": [
     "generators"
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
     "yeoman-generator"
   ],
   "devDependencies": {
@@ -74,6 +72,6 @@
     "pretest": "eslint .",
     "test": "jest"
   },
-  "repository": "skylerlee/generator-cproject",
+  "repository": "depotpkg/generator-cproject",
   "license": "MIT"
 }

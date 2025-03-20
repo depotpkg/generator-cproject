@@ -6,35 +6,31 @@ const yosay = require('yosay');
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
-    this.log(
-      yosay(
-        `Welcome to the first-rate ${chalk.red('generator-cproject')} generator!`
-      )
-    );
-
-    const prompts = [
-      {
-        type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
-        default: true
-      }
-    ];
-
-    return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
+    this.log(yosay(`Welcome to the first-rate ${chalk.red('generator-cproject')} generator!`));
+    return this.prompt([{
+      type: 'input',
+      name: 'projectName',
+      message: 'What is your project name?',
+      default: this.appname
+    }, {
+      type: 'input',
+      name: 'shortName',
+      message: 'What is the short name of your project?',
+      default: this.appname.toUpperCase()
+    }]).then(props => {
       this.props = props;
     });
   }
 
   writing() {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+    this.fs.copyTpl(
+      this.templatePath('**/*'),
+      this.destinationPath(),
+      this.props
     );
-  }
-
-  install() {
-    this.installDependencies();
+    this.fs.copy(
+      this.templatePath('.*'),
+      this.destinationPath()
+    );
   }
 };

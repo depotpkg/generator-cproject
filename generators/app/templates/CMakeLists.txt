@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.2)
 project(<%= projectName %> VERSION 1.0.0 LANGUAGES C)
 
-option(BUILD_<%= shortName %>_EXAMPLE "Set to ON to build <%= projectName %> example." OFF)
+option(BUILD_<%= shortName.toUpperCase() %>_EXAMPLE "Set to ON to build <%= projectName %> example." OFF)
 
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
 
-add_library(<%= projectName %> STATIC levenshtein.c levenshtein.h)
+add_library(<%= projectName %> STATIC <%= projectName %>.c <%= projectName %>.h)
 
 target_include_directories(<%= projectName %>
     PUBLIC
@@ -17,7 +17,7 @@ target_include_directories(<%= projectName %>
 target_compile_definitions(<%= projectName %> PRIVATE <%= shortName %>_IMPLEMENTATION)
 
 set_target_properties(<%= projectName %> PROPERTIES VERSION ${PROJECT_VERSION})
-set_target_properties(<%= projectName %> PROPERTIES PUBLIC_HEADER levenshtein.h)
+set_target_properties(<%= projectName %> PROPERTIES PUBLIC_HEADER <%= projectName %>.h)
 
 if(BUILD_<%= shortName %>_EXAMPLE)
   add_subdirectory(example)
