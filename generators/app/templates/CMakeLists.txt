@@ -14,12 +14,12 @@ target_include_directories(<%= projectName %>
     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 
-target_compile_definitions(<%= projectName %> PRIVATE <%= shortName %>_IMPLEMENTATION)
+target_compile_definitions(<%= projectName %> PRIVATE <%= shortPrefix %>_IMPLEMENTATION)
 
 set_target_properties(<%= projectName %> PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(<%= projectName %> PROPERTIES PUBLIC_HEADER <%= projectName %>.h)
 
-if(BUILD_<%= shortName %>_EXAMPLE)
+if(BUILD_<%= shortPrefix %>_EXAMPLE)
   add_subdirectory(example)
 endif()
 
